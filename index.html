@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventPro | Elite Event Management Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-calendar-check ripple"></i>
+                <span>EventPro</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-chart-line"></i> Analytics</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn-icon"><i class="fas fa-bell"></i></button>
+                <div class="user-profile">
+                    <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=EventUser" alt="User">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-bg-overlay"></div>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="page-header">
+            <h1 class="glow-text">Event Management <span>Dashboard</span></h1>
+            <p class="subtitle">Streamline your scheduling and management in one professional workspace.</p>
+        </header>
+
+        <div class="stats-overview">
+            <div class="stat-card glass-card">
+                <i class="fas fa-calendar-alt"></i>
+                <div class="stat-info">
+                    <span id="totalEvents">0</span>
+                    <label>Total Events</label>
+                </div>
+            </div>
+            <div class="stat-card glass-card">
+                <i class="fas fa-wallet"></i>
+                <div class="stat-info">
+                    <span id="totalBudget">$0</span>
+                    <label>Total Budget</label>
+                </div>
+            </div>
+            <div class="stat-card glass-card">
+                <i class="fas fa-clock"></i>
+                <div class="stat-info">
+                    <span id="upcomingEvents">0</span>
+                    <label>Upcoming</label>
+                </div>
+            </div>
+            <div class="stat-card glass-card">
+                <i class="fas fa-check-circle"></i>
+                <div class="stat-info">
+                    <span id="completedEvents">0</span>
+                    <label>Completed</label>
+                </div>
+            </div>
+        </div>
+
+        <section class="main-content-grid">
+            <div class="glass-card registration-section">
+                <h2><i class="fas fa-plus-circle"></i> Create New Event</h2>
+                <form id="eventForm">
+                    <div class="input-group">
+                        <label for="eventName">Event Title</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-heading"></i>
+                            <input type="text" id="eventName" placeholder="e.g., Annual Tech Conference" required>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="eventDate">Schedule Date</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-calendar-day"></i>
+                                <input type="date" id="eventDate" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="eventTime">Start Time</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-clock"></i>
+                                <input type="time" id="eventTime" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="eventVenue">Location / Venue</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <input type="text" id="eventVenue" placeholder="e.g., Silicon Valley" required>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label for="eventBudget">Estimated Budget</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-dollar-sign"></i>
+                                <input type="number" id="eventBudget" placeholder="0.00" step="0.01" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="eventDesc">Event Details</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-align-left"></i>
+                            <textarea id="eventDesc" rows="3"
+                                placeholder="Key highlights and agenda items..."></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <span>Deploy Event</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="events-list-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-list-ul"></i> Activity Feed</h2>
+                    <div class="filter-actions">
+                        <button class="btn-outline active">All</button>
+                        <button class="btn-outline">Pending</button>
+                    </div>
+                </div>
+                <div id="eventsContainer" class="events-stack">
+                    <div class="empty-state">
+                        <img src="https://cdni.iconscout.com/illustration/premium/thumb/no-data-found-8867280-7221008.png?f=webp"
+                            alt="No data" style="width: 150px; opacity: 0.3; margin-bottom: 20px;">
+                        <p>Your agenda is clear. Ready to create impact?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 EventPro Professional Services. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Security</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Help Center</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
